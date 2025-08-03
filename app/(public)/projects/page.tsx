@@ -1,7 +1,7 @@
 'use client'
 import { Suspense, useState } from "react";
 import { ProjectsList } from "@/components/projects-list";
-import { ProjectsSkeleton } from "@/components/projects-skeleton";
+import { ProjectsListViewSkeleton } from "@/components/projects-skeleton";
 import {
   Select,
   SelectContent,
@@ -41,7 +41,7 @@ export default function ProjectsPage() {
         {isAdmin() && <Button variant="default" className="w-32" onClick={handleCreateNewClick}>Create New</Button> }
       </div>
 
-      <Suspense fallback={<ProjectsSkeleton />}>
+      <Suspense fallback={<ProjectsListViewSkeleton />}>
         <ProjectsList type={selectedValue} />
       </Suspense>
     </div>

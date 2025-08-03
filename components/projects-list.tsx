@@ -2,7 +2,7 @@
 import { ProjectCard } from "@/components/project-card"
 import { projectsAPI } from "@/lib/api"
 import { useEffect, useState } from "react";
-import { ProjectsSkeleton } from "./projects-skeleton";
+import { ProjectsListViewSkeleton } from "./projects-skeleton";
 import { useData } from "./data-provider";
 import { PROJECT_TYPE } from "@/lib/utils";
 
@@ -34,7 +34,7 @@ export function ProjectsList({ type }: ProjectListProps) {
 
   if (isLoading) {
     return (
-      <ProjectsSkeleton key="loading"  />
+      <ProjectsListViewSkeleton key="loading"  />
     )
   }
 
