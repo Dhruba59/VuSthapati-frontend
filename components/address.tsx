@@ -22,8 +22,8 @@ export default async function AddressCard () {
 
       {/* Address Section */}
       <div className="text-sm space-y-4">
-        <h2 className="text-subheader font-extrabold text-custom2 mb-2 !my-6">{contactInfo.name}</h2>
-        <div className="text-regular space-y-2">
+        <h2 className="text-subheader font-sans font-bold text-custom2 mb-2 !my-6 uppercase">{contactInfo.name}</h2>
+        <div className="font-raleway text-black/85 text-sm font-medium tracking-widest space-y-2">
           <p>{contactInfo.address.street}</p>
           <p>{contactInfo.address.city}{', '} {contactInfo.address.postalCode}{', '} {contactInfo.address.country}</p>
           <p>{contactInfo.primaryPhone}</p>

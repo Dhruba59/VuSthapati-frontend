@@ -22,7 +22,7 @@ export default function News() {
         const res = await newsAPI.getAll();
         setNews(res);
       } catch (error) {
-        console.error("Error fetching projects:", error);
+        console.error("Error fetching news:", error);
       } finally {
         setIsLoading(false);
       }
@@ -51,18 +51,29 @@ export default function News() {
     }
   }
 
+  if(news.length === 0) {
+    return (
+      <section className="px-4 sm:px-0 container mx-auto">
+        <div className="mx-auto space-y-2">
+          <h2 className="text-header font-extrabold my-3 text-black/60">News</h2>
+          <p className="text-gray-500">No news available at the moment.</p>
+        </div>
+      </section>
+    );
+  }
+
+
   return (
     <section className="px-4 sm:px-0 container mx-auto">
       <div className="mx-auto space-y-2">
-        {/* <h2 className="text-header font-extrabold my-3 text-black/60">News</h2> */}
         <div className="flex justify-end">
           {isAdmin() && <Button variant="default" className="w-32" onClick={handleCreateNewClick}>Create New</Button>}
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {news.map((news) => (
-            <div key={news._id} onClick={() => router.push(`/news/${news._id}`)} className="bg-white shadow-lg overflow-hidden h-[360px]">
+            <div key={news._id} onClick={() => router.push(`/news/${news._id}`)} className="bg-white shadow-lg overflow-hidden h-[330px] cursor-pointer">
               <Image
-                src='/assets/archi-image.jpg'
+                src={news.images[0]?.url}
                 alt={news.title}
                 width={400}
                 height={200}
@@ -70,7 +81,7 @@ export default function News() {
               />
               <div className="p-4">
                 <div className="flex justify-between"> 
-                <p className="text-gray-600 text-sm mb-2">{new Date(news?.createdAt ?? '').toDateString()}</p>
+                <p className="text-gray-600 text-xs font-sans mb-2">{new Date(news?.createdAt ?? '').toDateString()}</p>
 
                 {isAdmin() && <div className="flex gap-4 ">
                 <button
@@ -93,7 +104,7 @@ export default function News() {
                 </button>
               </div>}
                 </div>
-                <h3 className="text-xl font-bold truncate text-black/75">{news.title}</h3>
+                <h3 className="font-sans text-xl font-semibold truncate text-black/75">{news.title}</h3>
               </div>
 
             </div>

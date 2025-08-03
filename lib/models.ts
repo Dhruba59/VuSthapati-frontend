@@ -4,7 +4,7 @@ export interface News {
   _id?: string;
   title: string;
   description: string;
-  imageUrls: string[];
+  images: UploadedFile[];
   createdAt?: string;
 }
 
@@ -12,7 +12,7 @@ export interface Project {
   _id?: string;
   title: string;
   description: string;
-  imageUrls: string[];
+  images: UploadedFile[];
   tags: string[];
   location: string;
   client: string;
@@ -60,4 +60,18 @@ export interface MessagePayload {
   recipientEmail: string;
   message: string;
   createdAt?: string; // Optional if you don’t use it on frontend
+}
+
+export interface UploadedFile {
+  url: string;
+  deleteUrl?: string; // Optional if you want to provide a delete URL
+}
+
+export interface AboutSection {
+  _id?: string;
+  title: string;
+  description: string;
+  featuredImages: UploadedFile[]; 
+  aboutUsImages: UploadedFile[];
+  createdAt?: string; 
 }

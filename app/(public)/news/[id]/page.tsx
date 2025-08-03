@@ -1,4 +1,5 @@
 'use client'
+import MultiImageViewer from "@/components/multi-image-viewer";
 import { newsAPI } from "@/lib/api";
 import { News } from "@/lib/models";
 import Image from "next/image";
@@ -35,10 +36,10 @@ export default function NewsDetail({ params }: NewsDetailsProps) {
 
   return (
     <div className="max-w-3xl mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-4">{news.title}</h1>
-      <p className="text-gray-500 text-sm mb-4">Published on {new Date(news?.createdAt ?? '').toDateString()}</p>
-      <Image src='/assets/archi-image.jpg' alt={news.title} width={700} height={300} className="rounded-lg" />
-      <p className="mt-6 text-base leading-relaxed text-justify text-gray-700">{news.description}</p>
+      <h1 className="text-4xl font-sans font-normal text-center mb-4">{news.title}</h1>
+      <p className="text-gray-500 text-sm text-center mb-12">Published on {new Date(news?.createdAt ?? '').toDateString()}</p>
+      <MultiImageViewer urls={news?.images?.map(item => item.url)}/>
+      <p className="font-raleway text-base leading-relaxed text-justify text-gray-700 mt-12">{news.description}</p>
     </div>
   );
 }

@@ -1,7 +1,6 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-	darkMode: ["class"],
 	content: [
 	"./pages/**/*.{js,ts,jsx,tsx,mdx}",
 	"./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -11,6 +10,7 @@ const config: Config = {
   theme: {
 	extend: {
 		fontFamily: {
+			raleway: ['Raleway', 'sans-serif'],
 			Aspekta: ["Aspekta", "sans-serif"],
 		},
 		fontSize: {
