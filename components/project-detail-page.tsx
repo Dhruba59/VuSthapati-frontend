@@ -14,7 +14,7 @@ const ProjectDetailPage = async ({ id }: { id: string }) => {
       }
   
       return (
-        <section className="py-12 md:py-16">
+        <section className="mx-auto py-12 md:py-16 max-w-7xl">
           <div className="px-4 md:px-6">
             <Button variant="ghost" asChild className="mb-8">
               <Link href="/projects">
@@ -22,53 +22,42 @@ const ProjectDetailPage = async ({ id }: { id: string }) => {
                 Back to Projects
               </Link>
             </Button>
-            <MultiImageViewer urls={project.imageUrls}/>
+            <MultiImageViewer urls={project.images.map(item => item.url)}/>
   
             <div className="">
-              <div className="">
+              <div className="font-sans tracking-wider">
                 
                 <div className="p-8 mx-auto">
-                  <h1 className="text-3xl font-bold my-10">{project.title}</h1>
+                  <h1 className="text-4xl my-10 text-center font-sans text-black/80 font-semibold">{project.title}</h1>
                   <div className="flex flex-wrap gap-2 mb-6">
                 </div>
                   <div className="grid grid-cols-2 gap-8">
                     <div>
                       <div className="mb-4">
-                        <h2 className="font-bold">Location:</h2>
-                        <p>{project.location}</p>
+                        <h2 className="font-semibold text-neutral-800 text-lg">Location:</h2>
+                        <p className="text-neutral-600">{project.location}</p>
                       </div>
                       <div className="mb-4">
-                        <h2 className="font-bold">
+                        <h2 className="font-semibold text-neutral-800 text-lg">
                           Architects Competition Stage:
                         </h2>
-                        <p>2018</p>
+                        <p className="text-neutral-600">2018</p>
                       </div>
                       <div className="mb-4">
-                        <h2 className="font-bold">
+                        <h2 className="font-semibold text-neutral-800 text-lg">
                           Architects Design and Implementation:
                         </h2>
-                        <p>Vu - Sthapati</p>
+                        <p className="text-neutral-600">Vu - Sthapati</p>
                       </div>
                       <div className="mb-4">
-                        <h2 className="font-bold">Client:</h2>
-                        <p>{project.client}</p>
+                        <h2 className="font-semibold text-neutral-800 text-lg">Client:</h2>
+                        <p className="text-neutral-600">{project.client}</p>
                       </div>
                     </div>
                     <div className="text-justify">
-                      <p className="mb-4 font-mono">
+                      <p className="font-sans text-neutral-600 font-normal leading-loose tracking-widest mb-4">
                         {project.description}
                       </p>
-                      {/* <p className="font-mono">
-                        The traditional Bengali courtyard is one such space
-                        created by the ensemble of huts and household elements,
-                        showing life in symbiosis with nature. A space enlivened
-                        by social, community and family activities. The courtyard
-                        is also the place where, over the years, activities of
-                        Panigram community initiatives have taken place, engaging
-                        with neighboring villages. The household elements in the
-                        installation come from the villagers who had generously
-                        donated to the biennial.
-                      </p> */}
                     </div>
                     <div className="w-fit space-x-2">
                       {project.tags.map((tag: any) => (

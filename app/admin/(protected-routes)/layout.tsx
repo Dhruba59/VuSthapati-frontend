@@ -89,6 +89,15 @@ export default function AdminDashboardLayout({
                 Messages
               </Link>
             </li>
+             <li>
+              <Link
+                href="/admin/about-us"
+                className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium hover:bg-accent"
+              >
+                <Mail className="h-4 w-4" />
+                  About Us
+              </Link>
+            </li>
           </ul>
         </nav>
         <div className="border-t p-4">
@@ -142,6 +151,13 @@ export default function AdminDashboardLayout({
                 >
                   <Mail className="h-4 w-4" />
                   Messages
+                </Link>
+                <Link
+                  href="/admin/about-us"
+                  className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium hover:bg-accent"
+                >
+                  <FolderOpen className="h-4 w-4" />
+                  About Us
                 </Link>
                 <Button variant="outline" className="mt-4 w-full justify-start" onClick={handleLogout}>
                   <LogOut className="mr-2 h-4 w-4" />

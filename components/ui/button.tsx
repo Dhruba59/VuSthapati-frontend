@@ -39,15 +39,74 @@ export interface ButtonProps
   asChild?: boolean
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps & { loading?: boolean }>(
+  ({ className, variant, size, asChild = false, loading = false, disabled, children, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
+        disabled={disabled || loading}
+        aria-busy={loading}
         {...props}
-      />
+      >
+        {asChild
+          ? React.Children.only(
+              <>
+                {loading && (
+                  <svg
+                    className="animate-spin mr-2 h-4 w-4"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="8"
+                      cy="8"
+                      r="7"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    />
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M15 8a7 7 0 11-7-7v2a5 5 0 100 10v2a7 7 0 017-7z"
+                    />
+                  </svg>
+                )}
+                {children}
+              </>
+            )
+          : (
+            <>
+              {loading && (
+                <svg
+                  className="animate-spin mr-2 h-4 w-4"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="8"
+                    cy="8"
+                    r="7"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  />
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M15 8a7 7 0 11-7-7v2a5 5 0 100 10v2a7 7 0 017-7z"
+                  />
+                </svg>
+              )}
+              {children}
+            </>
+          )
+        }
+      </Comp>
     )
   }
 )

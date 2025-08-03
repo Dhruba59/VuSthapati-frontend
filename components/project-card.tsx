@@ -1,28 +1,27 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Edit, EditIcon, ExternalLink, Github, Trash, TrashIcon } from "lucide-react"
+import { Edit, Github, Trash, TrashIcon } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { useRouter } from "next/navigation";
 import { isAdmin } from "@/lib/utils"
 import { projectsAPI } from "@/lib/api"
 import { Toast } from "./ui/toast"
 import { toast } from "./ui/use-toast"
 import { useState } from "react"
+import { UploadedFile } from "@/lib/models"
 
 interface ProjectCardProps {
   id: string;
   title: string;
   description: string;
   tags: string[];
-  imageUrl: string;
+  images: UploadedFile[];
   githubUrl: string;
   liveUrl: string;
 }
 
-export function ProjectCard({ id, title, description, tags, imageUrl, githubUrl, liveUrl }: ProjectCardProps) {
+export function ProjectCard({ id, title, description, tags, images, githubUrl, liveUrl }: ProjectCardProps) {
 
   const [isOpenDeleteModal, setIsOpenDeleteModal] = useState(false);
   const router = useRouter();
@@ -55,7 +54,7 @@ export function ProjectCard({ id, title, description, tags, imageUrl, githubUrl,
     {/* Image */}
     <div className="relative w-full h-full transition-transform duration-300 group-hover:scale-105">
       <Image
-        src={'/assets/archi-image.jpg'}
+        src={images[0]?.url}
         alt={title}
         fill
         className="object-cover w-full h-full transition-all duration-300"
@@ -63,10 +62,10 @@ export function ProjectCard({ id, title, description, tags, imageUrl, githubUrl,
     </div>
 
     {/* Overlay */}
-    <div className="absolute inset-0 backdrop-blur-md opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex flex-col gap-4 px-4 py-4 items-center justify-center">
-      <h3 className="text-black/70 text-base font-mono font-semibold text-center">{title}</h3>
-      <p className="text-black/60 text-sm font-light text-center">
-        {description.length > 40 ? `${description.slice(0, 40)}...` : description}
+    <div className="font-sans absolute inset-0 backdrop-blur-md opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex flex-col gap-4 px-4 py-4 items-center justify-center">
+      <h3 className="text-black/70 text-base font-semibold text-center">{title}</h3>
+      <p className="text-black/60 text-sm font-light text-center font-raleway px-4  ">
+        {description.length > 80 ? `${description.slice(0, 80)}...` : description}
       </p>
       <div className="flex flex-wrap text-blue-50 gap-2 mt-4">
         {tags.map((tag, index) => (

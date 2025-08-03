@@ -6,7 +6,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { messagesAPI, newsAPI, projectsAPI } from "@/lib/api";
 import { MessagePayload } from "@/lib/models";
 import { PROJECT_TYPE } from "@/lib/utils";
@@ -41,7 +40,6 @@ export default async function AdminDashboardPage() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{totalProject}</div>
-              {/* <p className="text-xs text-muted-foreground">+2 from last month</p> */}
             </CardContent>
           </Card>
           <Card>
@@ -50,7 +48,6 @@ export default async function AdminDashboardPage() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{messages?.length ?? 0}</div>
-              {/* <p className="text-xs text-muted-foreground">5 unread messages</p> */}
             </CardContent>
           </Card>
           <Card>
@@ -61,7 +58,6 @@ export default async function AdminDashboardPage() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{totalNews}</div>
-              {/* <p className="text-xs text-muted-foreground">+19% from last month</p> */}
             </CardContent>
           </Card>
         </div>
@@ -89,7 +85,6 @@ export default async function AdminDashboardPage() {
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                { /* Replace with actual messages data */}
                 {
                   messages.length === 0 ? (
                     <div className="text-center text-muted-foreground">
