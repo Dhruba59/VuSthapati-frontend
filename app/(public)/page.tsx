@@ -18,7 +18,7 @@ export default async function Home() {
    
   return (
     <main className="flex min-h-screen flex-col font-Aspekta font-normal text-regular">
-      <section className="flex relative flex-col min-h-screen items-center justify-center px-4 py-24 md:py-32 bg-red-500 ">
+      <section className="flex relative flex-col min-h-96 md:min-h-screen items-center justify-center px-4 py-24 md:py-32 bg-red-500 ">
         <div className="container w-full max-w-4xl space-y-6 text-center">
           <Image
             src="/assets/landscape-logo.jpg"
@@ -71,7 +71,7 @@ export default async function Home() {
             <div className="mb-6 flex items-center gap-2">
               <span>
                 About
-                <h2 className="text-black/85 text-header font-mono font-extrabold tracking-wider">
+                <h2 className="uppercase text-black/85 text-[26px] md:text-header font-mono font-extrabold tracking-wider">
                   VU-STHAPATI
                 </h2>
               </span>
@@ -80,12 +80,11 @@ export default async function Home() {
               <p className="">
                 {data.description1}
               </p>
-              <div className="flex flex-col-reverse md:flex-row md:gap-10 md:justify-between">
+              <div className="flex flex-col-reverse md:flex-row gap-8 md:gap-10 md:justify-between">
                 <p className="max-w-sm">
                  {data.description2}
                 </p>
-                <div className="md:min-w-96 w-full ">
-                  
+                <div className="md:min-w-96 w-full">
                   <AspectRatio
                     ratio={16 / 9}
                     className="rounded-lg overflow-hidden shadow-lg"
@@ -112,7 +111,7 @@ export default async function Home() {
       >
         <div className="flex flex-col items-end">
           <div className="w-full max-w-3xl space-y-8">
-            <h2 className="text-black/85 text-header font-mono font-extrabold tracking-wider">Works</h2>
+            <h2 className="uppercase text-black/85 text-[26px] md:text-header font-mono font-extrabold tracking-wider">Works</h2>
 
             <AspectRatio
               ratio={16 / 9}
@@ -131,8 +130,8 @@ export default async function Home() {
 
       {/* News */}
       <section className="py-10 md:py-16 px-4 md:px-8 lg:px-16">
-        <div className="mb-12 space-y-4">
-          <h2 className="text-black/85 text-header font-mono font-extrabold tracking-wider mb-8">LATEST NEWS</h2>
+        <div className="space-y-4">
+          <h2 className="uppercase text-black/85 text-[26px] md:text-header font-mono font-extrabold tracking-wider mb-8">LATEST NEWS</h2>
           <div className="grid gap-6  md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
             {news.slice(0,6).map((news) => (
               <Link
@@ -172,7 +171,7 @@ export default async function Home() {
         <AddressCard />
         <div className="w-full flex flex-col justify-center items-center md:items-end">
           <div className="mb-10 max-w-md w-full">
-            <h2 className="text-black/85 text-header font-mono font-extrabold tracking-wider">
+            <h2 className="uppercase text-black/85 text-[26px] md:text-header font-mono font-extrabold tracking-wider">
               Get In Touch
             </h2>
             <p className="mt-1 text-muted-foreground font-raleway tracking-wider">

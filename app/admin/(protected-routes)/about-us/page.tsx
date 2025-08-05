@@ -163,9 +163,9 @@ export default function AboutUsManagement() {
   }, []);
 
   return (
-    <div className="mx-auto py-8">
+    <div className="mx-auto">
       <DescriptionsFields />
-      <h1 className="text-2xl font-bold mb-6">Files Management</h1>
+      <h1 className="text-2xl font-bold mb-3 md:mb-6">Files Management</h1>
       <FileUploadSection
         title="Upload Featured Images"
         prevFiles={featuredImages}
@@ -218,7 +218,7 @@ const DescriptionsFields = () => {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-6 ">About Section Management</h2>
+      <h2 className="text-2xl font-bold mb-3 md:mb-6">About Section Management</h2>
       {/* Render about section data here */}
       <form className="flex flex-col mb-8 p-4 gap-4 border rounded" onSubmit={onSubmit}>
         <label className="flex flex-col">
@@ -313,8 +313,10 @@ const ContactFields = () => {
   };
 
   return (
-    <form className="flex flex-col mb-8 p-4 gap-4 border rounded" onSubmit={onSubmit}>
-      <h2 className="text-2xl font-bold mb-2">Contact Info Management</h2>
+    <div>
+      <h2 className="text-xl md:text-2xl font-bold mb-3 md:mb-6">Contact Info Management</h2>
+
+    <form className="flex flex-col mb-8 gap-4 border rounded" onSubmit={onSubmit}>
 
       <input
         className="border px-2 py-1 rounded"
@@ -446,5 +448,6 @@ const ContactFields = () => {
         Save
       </Button>
     </form>
+    </div>
   );
 };

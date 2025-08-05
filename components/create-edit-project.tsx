@@ -72,7 +72,7 @@ const CreateEditProjectPage = ({ id }: { id?: string }) => {
     const updatedImages = formData.images.filter((item) => item.url !== image.url);
     if (image.deleteUrl) {
       try {
-        await fetch(image.deleteUrl, { method: "DELETE" });
+        // await fetch(image.deleteUrl, { method: "DELETE" });
       } catch (error) {
         console.error("Error deleting image:", error);
       }
@@ -125,7 +125,7 @@ const CreateEditProjectPage = ({ id }: { id?: string }) => {
   };
 
   return (
-    <div className="flex items-center justify-start px-4">
+    <div className="flex items-center justify-start">
       <div className=" bg-white rounded-2xl w-full max-w-4xl">
         <h1 className="font-semibold mb-6 text-gray-800">Create New Project</h1>
         <form onSubmit={handleSubmit} className="space-y-5">

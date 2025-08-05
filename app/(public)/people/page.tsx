@@ -75,16 +75,16 @@ function Section({ title, people }: { title: string; people: any[] }) {
 
   return (
     <div className="mb-12 font-raleway">
-      <h2 className="text-lg text-black/80 font-semibold mb-4 font-mono uppercase">{title}</h2>
-      <div className={` ${(title === 'Partners' || title === 'Directors') ? 'flex flex-wrap justify-start gap-20' : 'flex flex-wrap justify-start gap-20'}`}>
+      <h2 className="text-lg text-center md:text-start text-black/80 font-semibold mb-4 font-mono uppercase">{title}</h2>
+      <div className={`flex flex-wrap justify-center md:justify-start gap-5 md:gap-20`}>
         {people.map((person) => (
-          <Card key={person.name} className={` ${title === 'Partners' ? 'md:max-w-48 xl:w-60' : 'md:max-w-48 xl:w-60'} gap-4 overflow-hidden border-none`}>
+          <Card key={person.name} className={`w-full max-w-max md:max-w-48 xl:w-60 gap-4 overflow-hidden border-none`}>
             <Image
               src={person.image}
               height={200}
               width={200}
               alt={person.name}
-              className={` h-40 object-cover ${title === 'Partners' ? 'w-full md:w-48 xl:w-60' : 'md:w-48 xl:w-60'}`}
+              className={`w-full h-40 object-cover md:w-48 xl:w-60`}
             />
             <CardContent className="p-0 pt-4">
               <CardTitle className="text-base leading-none font-medium tracking-wide text-center">{person.name}</CardTitle>

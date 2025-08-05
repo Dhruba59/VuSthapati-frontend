@@ -110,7 +110,7 @@ export default function AdminDashboardLayout({
 
       {/* Mobile header and sidebar */}
       <div className="flex min-h-screen flex-col md:hidden">
-        <header className="flex h-14 items-center border-b px-4">
+        <header className="flex h-14 items-center border-b ">
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="mr-2">
@@ -123,12 +123,6 @@ export default function AdminDashboardLayout({
                 <Link href="/admin/dashboard" className="flex items-center font-semibold">
                   Admin Dashboard
                 </Link>
-                <SheetTrigger asChild>
-                  <Button variant="ghost" size="icon" className="ml-auto">
-                    <X className="h-5 w-5" />
-                    <span className="sr-only">Close menu</span>
-                  </Button>
-                </SheetTrigger>
               </div>
               <nav className="grid gap-1 p-4">
                 <Link
@@ -139,14 +133,14 @@ export default function AdminDashboardLayout({
                   Dashboard
                 </Link>
                 <Link
-                  href="/admin/dashboard/projects"
+                  href="/admin/projects"
                   className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium hover:bg-accent"
                 >
                   <FolderOpen className="h-4 w-4" />
                   Projects
                 </Link>
                 <Link
-                  href="/admin/dashboard/messages"
+                  href="/admin/messages"
                   className="flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium hover:bg-accent"
                 >
                   <Mail className="h-4 w-4" />
@@ -169,11 +163,11 @@ export default function AdminDashboardLayout({
           <div className="ml-2 font-semibold">Admin Dashboard</div>
         </header>
 
-        <main className="flex-1 overflow-auto p-4">{children}</main>
+        <main className="flex-1 overflow-auto px-4 py-4">{children}</main>
       </div>
 
       {/* Main content for desktop */}
-      <main className="hidden flex-1 overflow-auto mt-8 p-6 md:block">{children}</main>
+      <main className="hidden flex-1 overflow-auto mt-8 py-8 px-12 md:block">{children}</main>
     </div>
   )
 }

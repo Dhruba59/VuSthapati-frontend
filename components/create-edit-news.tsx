@@ -110,7 +110,7 @@ const CreateEditNewsPage = ({ id }: { id?: string }) => {
   };
 
   return (
-    <div className="flex items-center justify-start px-4">
+    <div className="flex items-center justify-start ">
       <div className="bg-white rounded-2xl w-full max-w-4xl">
         <h1 className="font-semibold mb-6 text-gray-800">Create New News</h1>
         <form onSubmit={handleSubmit} className="space-y-5">
