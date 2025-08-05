@@ -39,8 +39,8 @@ const MessagesPage = () => {
 
   return (
     <ProtectedRoute>
-      <div className="p-6">
-        <h1 className="text-2xl font-bold mb-4">Messages</h1>
+      <div className="">
+        <h1 className="text-xl md:text-2xl font-bold mb-4">Messages</h1>
         <ScrollArea className="rounded-lg border shadow-sm">
           <table className="min-w-full text-sm">
             <thead className="bg-muted">

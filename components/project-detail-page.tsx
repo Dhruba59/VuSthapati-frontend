@@ -28,10 +28,10 @@ const ProjectDetailPage = async ({ id }: { id: string }) => {
               <div className="font-sans tracking-wider">
                 
                 <div className="p-8 mx-auto">
-                  <h1 className="text-4xl my-10 text-center font-sans text-black/80 font-semibold">{project.title}</h1>
+                  <h1 className="text-2xl lg:text-4xl my-10 text-center font-sans text-black/80 font-semibold">{project.title}</h1>
                   <div className="flex flex-wrap gap-2 mb-6">
                 </div>
-                  <div className="grid grid-cols-2 gap-8">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div>
                       <div className="mb-4">
                         <h2 className="font-semibold text-neutral-800 text-lg">Location:</h2>

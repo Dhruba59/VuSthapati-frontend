@@ -28,8 +28,13 @@ export function Navbar() {
     const handleScroll = () => {
       if (pathname !== "/") {
         setIsTransparentBg(false);
+        // For mobile screens, set transparent bg to false earlier
         return;
-      } else if (window.scrollY > window.innerHeight) {
+      } else if (window.innerWidth < 768 && window.scrollY > 50) {
+          setIsTransparentBg(false);
+          return;
+        }
+        else if (window.scrollY > window.innerHeight) {
         setIsTransparentBg(false);
       } else {
         setIsTransparentBg(true);

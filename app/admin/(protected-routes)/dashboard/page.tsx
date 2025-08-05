@@ -26,7 +26,7 @@ export default async function AdminDashboardPage() {
     <ProtectedRoute>
       <div className="space-y-6">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
+          <h1 className="text-2xl md:text-3xl font-bold tracking-tight">Dashboard</h1>
           <p className="text-sm text-muted-foreground">
             Welcome to your admin dashboard.
           </p>
@@ -65,7 +65,7 @@ export default async function AdminDashboardPage() {
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
           <Card className="lg:col-span-4">
             <CardHeader>
-              <CardTitle>Recent Activity</CardTitle>
+              <CardTitle className="text-xl md:text-2xl">Recent Activity</CardTitle>
               <CardDescription>
                 Your portfolio activity for the past 30 days.
               </CardDescription>
@@ -78,7 +78,7 @@ export default async function AdminDashboardPage() {
           </Card>
           <Card className="lg:col-span-3">
             <CardHeader>
-              <CardTitle>Recent Messages</CardTitle>
+              <CardTitle className="text-xl md:text-2xl">Recent Messages</CardTitle>
               <CardDescription>
                 You received 5 new messages this week.
               </CardDescription>
